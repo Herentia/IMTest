@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.pb.entity.Invitation" table="INVITATION" schema="SCOTT">
+		<!-- 映射标识属性 -->
+		<id name="id" type="java.lang.Long">
+			<column name="ID" precision="10" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">ID_SQ</param>
+			</generator>
+		</id>
+		<!-- 映射普通属性 -->
+		<property name="title" type="java.lang.String" column="TITLE" not-null="true" length="100" />
+		<property name="summary" type="java.lang.String" column="SUMMARY" />
+		<property name="author" type="java.lang.String" column="AUTHOR" length="50" />
+		<property name="createtime" type="java.util.Date" column="CREATETIME" length="7" not-null="true" />
+		<!-- 配置与回复的一对多关联关系 -->
+		<set name="replyDetails" inverse="true" lazy="false" cascade="all">
+			<key>
+				<column name="INVID" precision="10" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="com.pb.entity.ReplyDetail" />
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+

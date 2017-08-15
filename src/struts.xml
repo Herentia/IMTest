@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<package name="tieZi" namespace="/" extends="struts-default">
+		<action name="tiezi" class="com.pb.action.TieZiAction" method="tiezi">
+			<result name="list">/tieziList.jsp</result>
+		</action>
+		<action name="tieziSearch" class="com.pb.action.TieZiAction" method="tieziSearch">
+			<result name="listSearch">/tieziList.jsp</result>
+		</action>
+		<action name="deletetiezi" class="com.pb.action.TieZiAction" method="deletetiezi">
+			<result name="redirect1" type="redirectAction">tiezi</result>
+		</action>
+		<!-- 查看回复 -->
+		<action name="reply" class="com.pb.action.ReplyAction" method="reply">
+			<result name="list">/reply.jsp</result>
+		</action>
+		<!-- 到添加回复页面 -->
+		<action name="toaddreply" class="com.pb.action.ReplyAction" method="toaddreply">
+			<result name="toaddreply">/addReply.jsp</result>
+		</action>
+		<!-- 添加 -->
+		<action name="addreply" class="com.pb.action.ReplyAction" method="addreply">
+		</action>
+		<!-- 到修改页面 -->
+		<action name="edit" class="com.pb.action.TieZiAction" method="edit">
+			<result name="edit">/edit.jsp</result>
+		</action>
+		<!-- 修改 -->
+		<action name="doedit" class="com.pb.action.TieZiAction" method="edittiezi">
+			<result name="redirect1" type="redirectAction">tiezi</result>
+		</action>
+	</package>
+
+
+</struts> 
